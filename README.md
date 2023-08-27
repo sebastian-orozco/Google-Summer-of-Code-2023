@@ -8,7 +8,7 @@ window: terminal
 
 
 # T-tours Public History Tour App, City of Boston Mayor’s Office of New Urban Mechanics, Google Summer of Code 2023
-Developed by Sebastian Orozco & Sarah Agarrat, mentored by Madeline Webster
+Developed by Sebastian Orozco & Sarah Agarrat, mentored by Maddie Webster
 
 
 Goal: Implement a mobile website where Bostonians can listen to user-submitted stories while riding public transportation
@@ -20,10 +20,10 @@ Progress: 90% complete, see “Next Steps” for more details.
 ## Background
 
 
-T-tours is the fruition of Madeline’s vision, who described her inspiration for this project as follows: “Tim Murphy is an MBTA conductor who combines his hobby with his job, narrating local history for his passengers through the loudspeaker along with which T stops they’re approaching. I have sat in the audience for Mr. Murphy’s tours several times on the green line, to my delight, and it turns out other passengers also appreciate the unexpected addition to their commutes. As a 2019 article declared, ‘Murphy is definitely the talk of the MBTA and has earned rave reviews from passengers on social media.’” Inspired by Mr. Murphy, Madeline proposed the creation of a set of audio tours in partnership with the MBTA, accessible via a free mobile application, known as T-tours.
+T-tours is the fruition of Maddie’s vision, who described her inspiration for this project as follows: “Tim Murphy is an MBTA conductor who combines his hobby with his job, narrating local history for his passengers through the loudspeaker along with which T stops they’re approaching. I have sat in the audience for Mr. Murphy’s tours several times on the green line, to my delight, and it turns out other passengers also appreciate the unexpected addition to their commutes. As a 2019 article declared, ‘Murphy is definitely the talk of the MBTA and has earned rave reviews from passengers on social media.’” Inspired by Mr. Murphy, Maddie proposed the creation of a set of audio tours in partnership with the MBTA, accessible via a free mobile application, known as T-tours.
 
 
-That’s where Sarah and I came in. Through Google Summer of Code, we were matched with Madeline at the City of Boston Mayor’s Office of New Urban Mechanics to make T-tours into a reality. Over the course of the summer, we programmed in parallel, with myself primarily focusing on the frontend, and Sarah on the backend. Ultimately, we were able to create a functional prototype of the app which currently hosts one tour, though it has the capacity for future tours to be added. 
+That’s where Sarah and I came in. Through Google Summer of Code, we were matched with Maddie at the City of Boston Mayor’s Office of New Urban Mechanics to make T-tours into a reality. Over the course of the summer, we programmed in parallel, with myself primarily focusing on the frontend, and Sarah on the backend. Ultimately, we were able to create a functional prototype of the app which currently hosts one tour, though it has the capacity for future tours to be added. 
 
 
 ### Configuring

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Route Map</title>
+        <!-- link to css-->
+        <link rel="stylesheet" href="/static/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <!-- link to google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+        <!-- link to icons-->
+        <script src="https://kit.fontawesome.com/1d83992fea.js" crossorigin="anonymous"></script>
+        <style>
+            .map__container {
+                margin-top: 0;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 400px;
+                /*height: calc(100vh - 80px);*/
+                background: url('/static/maps/{{sel_route}}.png') no-repeat center top;
+                background-color: red;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .rounded {
+                border-radius: 30px;
+                width: 300px;
+                background-color: #ffffff;
+                padding: 10px;
+                margin-top: -60%;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .content-wrapper {
+                position: relative;
+                overflow: auto;
+                height: 100%;
+                width: 100%;
+            }
+
+            .info__container {
+                margin-top: 0;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                min-height: 100px;
+                width: 100%;
+            }
+
+            .player {
+            height: 600px;
+            width: 400px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background-color: white;
+            }
+            
+        .details {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          margin-top: 25px;
+          text-align: center;
+          position: relative;
+          margin: auto;
+        }
+        
+        .track-art {
+          margin: 25px;
+          height: 300px;
+          width: 300px;
+          background-image: url("https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+          background-size: cover;
+          border-radius: 15%;
+        }
+        
+        .now-playing {
+          font-size: 1rem;
+        }
+        
+        .track-name {
+          font-weight: bold;
+          font-size: 20px;
+          text-align: left;
+        }
+        
+        .buttons {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+        
+        .playpause-track,
+        .prev-track,
+        .next-track {
+          padding: 25px;
+          opacity: 0.8;
+        
+          /* Smoothly transition the opacity */
+          transition: opacity .2s;
+        }
+        
+        .playpause-track:hover,
+        .prev-track:hover,
+        .next-track:hover {
+          opacity: 1.0;
+        }
+        
+        .slider_container {
+          width: 75%;
+          max-width: 400px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        /* Modify the appearance of the slider */
+        .seek_slider {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          height: 5px;
+          background: black;
+          opacity: 0.7;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+        }
+        
+        /* Modify the appearance of the slider thumb */
+        .seek_slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          width: 15px;
+          height: 15px;
+          background: black;
+          cursor: pointer;
+          border-radius: 50%;
+        }
+        
+        .seek_slider:hover {
+          opacity: 1.0;
+        }
+        
+        .seek_slider {
+          width: 60%;
+        }
+        
+        .current-time,
+        .total-duration {
+          padding: 10px;
+        }
+        
+        i.fa-play-circle,
+        i.fa-pause-circle,
+        i.fa-step-forward,
+        i.fa-step-backward {
+          cursor: pointer;
+        }
+
+        .text__box {
+            text-align: left;
+            width: 80%;
+        }
+
+
+        .stop__description {
+        width: 70%;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        display: block;
+        text-align: left;
+        line-height: 1.5;
+        min-height: 100px;
+        position: relative;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding: 20px;
+    }
+
+    #st {
+        display: block;
+        padding: 10px 20px;
+        font-size: 20px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        z-index: 2;
+        width: 300px;
+        box-shadow: 1px 3px 3px #888888;
+        font-weight: bold;
+        color: white;
+        background-color: #3B864B;
+        transition: all 1s ease;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+    #st:hover {
+    background-color: #6FB550
+    }
+
+    .dual_button_container {
+        justify-content: center;
+        margin: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    a:link{
+    text-decoration: none!important;
+    cursor: pointer;
+}
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar__container">
+                <div class="navbar__toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <img src="/static/icons/ttours-logo.png" id="logo">
+                <ul class="navbar__menu">
+                    <!-- <li class="navbar__item">
+                        <a href="/index" class="navbar__links"><i class="fa-solid fa-house"></i>Home</a>
+                    </li>
+                    -->
+                    <li class="navbar__item">
+                        <a href="/" class="navbar__links"><i class="fa-solid fa-magnifying-glass"></i>Search tours</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="/about" class="navbar__links"><i class="fa-solid fa-circle-info"></i>About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="content-wrapper">
+            <div class="info__container">
+                <div class="map__container">
+                    <div class="rounded">
+                        <div class="text-container">
+                            <div class="route-number-box"> {{sel_route}} </div>
+                            <div class="route-text">{{routes[sel_route]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player">
+                    <div class="details">
+                        <!-- <div class="now-playing">PLAYING x OF y</div> -->
+                        <div class="text__box">
+                            Approaching: <div class="track-name">Track Name</div></div>
+                        <div class="track-art"></div>
+                        <div class="text__box">Voice of: <div class="track-artist">Track Artist</div></div>
+                    </div>
+                    <div class="slider_container">
+                        <div class="current-time">00:00</div>
+                        <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                        <div class="total-duration">00:00</div>
+                    </div>
+                    <div class="buttons">
+                        <div class="prev-track" onclick="prevTrack()"><i class="fa fa-step-backward fa-2x"></i></div>
+                        <div class="playpause-track" onclick="playpauseTrack()"><i class="fa fa-play-circle fa-5x"></i></div>
+                        <div class="next-track" onclick="nextTrack()"><i class="fa fa-step-forward fa-2x"></i></div>
+                    </div>
+                </div>
+                <div class="stop__description">
+                    <div class="track-bio">Track Bio</div> 
+                </div>
+                <div class="dual_button_container">
+                    <a href="https://www.boston.gov/parks/franklin-park">
+                        <button id="st" >Learn more!  <i class="fa-solid fa-arrow-right"></i></button>
+                    </a>
+                    <a href="/share">
+                        <button id="st" >Share your story!  <i class="fa-solid fa-arrow-right"></i></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/static/script.js"></script>
+        <script>
+            let now_playing = document.querySelector(".now-playing");
+            let track_art = document.querySelector(".track-art");
+            let track_name = document.querySelector(".track-name");
+            let track_artist = document.querySelector(".track-artist");
+            let track_bio = document.querySelector(".track-bio");
+            
+            let playpause_btn = document.querySelector(".playpause-track");
+            let next_btn = document.querySelector(".next-track");
+            let prev_btn = document.querySelector(".prev-track");
+            
+            let seek_slider = document.querySelector(".seek_slider");
+            let curr_time = document.querySelector(".current-time");
+            let total_duration = document.querySelector(".total-duration");
+            
+            let track_index = 0;
+            let isPlaying = false;
+            let updateTimer;
+            
+            // Create new audio element
+            let curr_track = document.createElement('audio');
+            
+            // Define the tracks that have to be played
+            let track_list = [
+              {
+                name: "Franklin Park",
+                artist: "Sebastian",
+                image: "/static/images/45.jpg",
+                path: "/static/audio/franklin_park.m4a",
+                bio: "With its acres of woods and scenic views, Franklin Park has long been considered Boston's “country park.” The 485-acre park remains Boston's largest open space. It is loved by residents and visitors for its miles of trails, playing fields, historical features and so much more. Some of the park's most notable attractions include the historic Bear Cages, Scarboro Pond, the William Devine Golf Course, a renowned cross-country running course, the Franklin Park Zoo, White Stadium, the Elma Lewis Playstead and multiple playgrounds.",
+                },
+              {
+                name: "Boston Liberation Center",
+                artist: "Sebastian",
+                image: "/static/images/blc.png",
+                path: "/static/audio/blc.m4a",
+                bio: "After years of hard work and dedication the Boston Liberation Center opened its doors on Saturday, August 21. The Boston Liberation Center is a new working class community center located at 194 Blue Hill Ave. in the heart of Roxbury, a historically Black neighborhood and one of the oldest neighborhoods in Boston.",           
+            },
+              {
+                name: "Caribbean Foundation of Boston",
+                artist: "Sebastian",
+                image: "/static/images/cfb.png",
+                path: "/static/audio/cfb.m4a",
+                bio: "The Caribbean Foundation of Boston is a nonprofit agency that was established in 1973. The organization was founded by a group of Caribbean women who wanted to expand home care for their culturally diverse and economically disadvantaged community.",
+            },
+            ];
+            
+            function loadTrack(track_index) {
+              clearInterval(updateTimer);
+              resetValues();
+            
+              // Load a new track
+              curr_track.src = track_list[track_index].path;
+              curr_track.load();
+            
+              // Update details of the track
+              track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
+              track_name.textContent = track_list[track_index].name;
+              track_bio.textContent = track_list[track_index].bio;
+
+              track_artist.textContent = track_list[track_index].artist;
+              now_playing.textContent = "PLAYING " + (track_index + 1) + " OF " + track_list.length;
+            
+              // Set an interval of 1000 milliseconds for updating the seek slider
+              updateTimer = setInterval(seekUpdate, 1000);
+            
+              // Move to the next track if the current one finishes playing
+              curr_track.addEventListener("ended", nextTrack);
+                    }
+            
+            
+            // Reset Values
+            function resetValues() {
+              curr_time.textContent = "00:00";
+              total_duration.textContent = "00:00";
+              seek_slider.value = 0;
+            }
+            
+            function playpauseTrack() {
+              if (!isPlaying) playTrack();
+              else pauseTrack();
+            }
+            
+            function playTrack() {
+              curr_track.play();
+              isPlaying = true;
+            
+              // Replace icon with the pause icon
+              playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+            }
+            
+            function pauseTrack() {
+              curr_track.pause();
+              isPlaying = false;
+            
+              // Replace icon with the play icon
+              playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';;
+            }
+            
+            function nextTrack() {
+              if (track_index < track_list.length - 1)
+                track_index += 1;
+              else track_index = 0;
+              loadTrack(track_index);
+              playTrack();
+            }
+            
+            function prevTrack() {
+              if (track_index > 0)
+                track_index -= 1;
+              else track_index = track_list.length;
+              loadTrack(track_index);
+              playTrack();
+            }
+            
+            function seekTo() {
+              seekto = curr_track.duration * (seek_slider.value / 100);
+              curr_track.currentTime = seekto;
+            }
+            
+            function seekUpdate() {
+              let seekPosition = 0;
+            
+              // Check if the current track duration is a legible number
+              if (!isNaN(curr_track.duration)) {
+                seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+                seek_slider.value = seekPosition;
+            
+                // Calculate the time left and the total duration
+                let currentMinutes = Math.floor(curr_track.currentTime / 60);
+                let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+                let durationMinutes = Math.floor(curr_track.duration / 60);
+                let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+            
+                // Adding a zero to the single digit time values
+                if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+                if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+                if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+                if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+            
+                curr_time.textContent = currentMinutes + ":" + currentSeconds;
+                total_duration.textContent = durationMinutes + ":" + durationSeconds;
+              }
+            }
+            
+            // Load the first track in the tracklist
+            loadTrack(track_index);
+        </script>
+    </body>
+</html>

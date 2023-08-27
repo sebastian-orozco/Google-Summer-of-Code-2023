@@ -1,0 +1,14 @@
+List of ongoing bugs/issues:
+
+1. (RESOLVED) When the hamburger menu appears by sliding down,
+it briefly covers the icon.
+    > attempted to fix by setting icon to have a
+    higher z-index than the menu, but that did not
+    work.
+
+2. (RESOLVED -> used online free icons instead) Some canva icons are still watermarked.
+
+3. The responsiveness to desktop vs. mobile kid of breaks down at the inbetween stage, but looks fine when its at either end.
+Also, the buttons align slightly differently on web-simulated mobile vs actual mobile.
+
+4. The search buttons are slighty misaligned w phone screen vs laptop simulation of phone screen

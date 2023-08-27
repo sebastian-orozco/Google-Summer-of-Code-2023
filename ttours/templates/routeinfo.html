@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Set character encoding and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set the title of the webpage -->
+    <title>Route Info</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- Preconnect to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Link to a specific Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+    <!-- Link to Font Awesome icons library -->
+    <script src="https://kit.fontawesome.com/1d83992fea.js" crossorigin="anonymous"></script>
+    <!-- Custom styling -->
+    <style>
+
+    .info__container {
+    margin-top: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    min-height: 100px;
+    /* some sort of error*/
+    }
+
+    .info__content, .divider {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .bottombar {
+        background: white;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        position: fixed;
+        bottom: 0;
+        z-index: 1000;
+        width: 100%;
+    }
+
+    #st {
+        display: block;
+        padding: 10px 20px;
+        font-size: 20px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        z-index: 2;
+        width: 250px;
+        box-shadow: 1px 3px 3px #888888;
+        font-weight: bold;
+        color: white;
+        background-color: #3B864B;
+        transition: all 1s ease;
+        margin: auto;
+    }
+
+    #st:hover {
+        background-color: #6FB550
+    }
+
+
+    .left-button,
+    .right-button {
+        flex: 1;
+        padding: 20px;
+        border: 0px;
+        background-color: white;
+        cursor: pointer;
+        max-width: 150px;
+        color: #808080;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .content-wrapper {
+        position: relative;
+        overflow: auto;
+        height: 100%;
+    }
+
+    .additional-divs {
+        display: none;
+        max-width: 300px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        min-height: 300px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        margin: auto;
+    }
+
+    .additional-div-1 {
+        display: block;
+        padding: 20px;
+        text-align: left;
+        line-height: 1.5;
+        min-height: 300px;
+        position: relative;
+    }
+
+    .additional-div-2 {
+        display: block;
+        padding: 20px;
+        position: relative;
+    }
+    
+    .button-underlined {
+        text-decoration-line: underline;
+        text-decoration-thickness: 3px;
+        text-decoration-color: #B26251;
+    }
+
+    .gradient-layer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 20%;
+        background-image: linear-gradient(to bottom, transparent, #808080);
+        opacity: 0.5;
+        pointer-events: none; 
+    }
+
+    a:link{
+        text-decoration: none!important;
+        cursor: pointer;
+    }
+    </style>
+
+</head>
+<body>
+    <!-- Navigation bar section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <!-- Mobile menu toggle button -->
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <!-- Website logo -->
+            <img src="/static/icons/ttours-logo.png" id="logo">
+            <!-- Navigation menu items -->
+            <ul class="navbar__menu">
+                <!-- Search tours navigation item -->
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links"><i class="fa-solid fa-magnifying-glass"></i>Search tours</a>
+                </li>
+                <!-- About navigation item -->
+                <li class="navbar__item">
+                    <a href="/about" class="navbar__links"><i class="fa-solid fa-circle-info"></i>About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content-wrapper">
+        <!-- Info container section -->
+        <div class="info__container">     
+            <!-- Display route information -->
+            <div class="white-box">
+                <div class="photo-container">
+                  <img src="/static/images/{{sel_route}}.jpg" alt="Photo">
+                </div>
+                <div class="text-container">
+                    <div class="route-number-box"> {{sel_route}} </div>
+                    <div class="route-text">{{routes[sel_route]}}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Divider section -->
+            <div class="divider"><img src="/static/icons/divider.png"></div>
+            
+            <!-- Info content section -->
+            <div class="info__content">
+                <!-- Left button for About section -->
+                <button class="left-button">About</button>
+                <!-- Right button for Preview section -->
+                <button class="right-button">Preview</button>
+            </div>
+
+            <!-- Additional divs section -->
+            <div class="additional-divs">
+                <!-- Default additional div content -->
+                <div class="additional-div-1" id="defaultDiv">
+                    <p>Embark on a captivating journey through time with our exclusive history tour of Route 45, tracing its path from Franklin Park to Ruggles Station in the heart of Boston. Join us as we unravel the rich tapestry of stories woven into the fabric of this iconic route.
+                    </p>
+                </div>
+                <!-- Alternate additional div content -->
+                <div class="additional-div-2" id="alternateDiv">
+                    <p>WIP!</p>
+                </div>
+            </div>
+          </div>
+          <!-- Gradient layer at the bottom -->
+          <div class="gradient-layer"></div>           
+        </div>
+    </div>
+    <!-- Bottom bar with Start Tour button -->
+    <div class="bottombar">
+        <a href="/routemap">
+            <button id="st" >Start tour!  <i class="fa-solid fa-arrow-right"></i></button>
+        </a>
+    </div>
+    <!-- Load jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Load custom JavaScript file -->
+    <script src="/static/script.js"></script>
+    <!-- Custom script for switching between About and Preview sections -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/static/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const defaultDiv = document.getElementById('defaultDiv');
+        const alternateDiv = document.getElementById('alternateDiv');
+        const additionalDivs = document.querySelector('.additional-divs');
+        const leftButton = document.querySelector('.left-button');
+        const rightButton = document.querySelector('.right-button');
+
+        rightButton.addEventListener('click', function () {
+        defaultDiv.style.display = 'none';
+        alternateDiv.style.display = 'block';
+        additionalDivs.style.display = 'block';
+
+        rightButton.classList.add('button-underlined');
+        leftButton.classList.remove('button-underlined');
+        });
+
+        leftButton.addEventListener('click', function () {
+        defaultDiv.style.display = 'block';
+        alternateDiv.style.display = 'none';
+        additionalDivs.style.display = 'block';
+
+        leftButton.classList.add('button-underlined');
+        rightButton.classList.remove('button-underlined');
+        });
+        });
+    </script>
+</body>
+</html>

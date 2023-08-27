@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Set character encoding and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set the title of the webpage -->
+    <title>About</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- Preconnect to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Link to a specific Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+    <!-- Link to Font Awesome icons library -->
+    <script src="https://kit.fontawesome.com/1d83992fea.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation bar section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <!-- Mobile menu toggle button -->
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <!-- Website logo -->
+            <img src="/static/icons/ttours-logo.png" id="logo">
+            <!-- Navigation menu items -->
+            <ul class="navbar__menu">
+                <!-- Search tours navigation item -->
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links"><i class="fa-solid fa-magnifying-glass"></i>Search tours</a>
+                </li>
+                <!-- About navigation item -->
+                <li class="navbar__item">
+                    <a href="/about" class="navbar__links"><i class="fa-solid fa-circle-info"></i>About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About section -->
+    <div class="abt__container">
+        <!-- Logo for the about section -->
+        <img src="/static/icons/ttours-logo-gray.png" id="abtlogo">
+        <!-- Text describing the app's purpose -->
+        <div class="about__text">
+            Developed by the Mayor's Office of New Urban Mechanics, T tours is a free public history tour app where Bostonians can uncover the history hidden in plain sight from the comfort of their bus seat!
+        </div>
+    </div>
+
+    <!-- Load jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Load custom JavaScript file -->
+    <script src="/static/script.js"></script>
+</body>
+</html>

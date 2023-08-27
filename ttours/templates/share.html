@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About</title>
+        <!-- link to css-->
+        <link rel="stylesheet" href="/static/styles.css">
+        <!-- link to google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+        <!-- link to icons-->
+        <script src="https://kit.fontawesome.com/1d83992fea.js" crossorigin="anonymous"></script>
+        <style>
+            .share__box {
+            position: center;
+            width: 300px;
+            line-height: 2;
+            color: #292929;
+            }
+            .temp {
+                background-color: #E1E1E1;
+            }
+            .share__form {
+                height: 40px;
+                background-color: #E1E1E1;
+            }
+            .uploads {
+                color: #1580C2;
+                text-align: left;
+            }
+            .tmp {
+                margin-top: 40px;
+            }
+            #temporary {
+                color: #808080;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar__container">
+                <div class="navbar__toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <img src="/static/icons/ttours-logo.png" id="logo">
+                <ul class="navbar__menu">
+                    <!-- <li class="navbar__item">
+                        <a href="/index" class="navbar__links"><i class="fa-solid fa-house"></i>Home</a>
+                    </li>
+                    -->
+                    <li class="navbar__item">
+                        <a href="/" class="navbar__links"><i class="fa-solid fa-magnifying-glass"></i>Search tours</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="/about" class="navbar__links"><i class="fa-solid fa-circle-info"></i>About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="abt__container" >
+                <div class="share__box" id="temporary">
+                    <b>Share your story!</b><br><br>
+                    Name <br>
+                    <div class="share__form"></div><br>
+                    Email <br>
+                    <div class="share__form"></div><br>
+                    Stop <br>
+                    <div class="share__form"></div><br>
+                </div>
+                <div class="uploads">
+                    Upload audio <i class="fa-solid fa-cloud-arrow-up"></i><br><br>
+                    Upload images <i class="fa-solid fa-cloud-arrow-up"></i><br>
+                </div>
+                <button id="st" class="tmp" >Submit!  <i class="fa-solid fa-arrow-right"></i></button>
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/static/script.js"></script>
+    </body>
+</html>

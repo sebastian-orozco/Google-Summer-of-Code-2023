@@ -1,7 +1,7 @@
 # history-tour-client
 
 —
-files: contained within `ttours/`
+files: contained within `ttours/` (equivalent to `monum/history-tour-client`), references to MONUM files in `monum/history-tour-server`
 url: hosted locally
 window: terminal
 —

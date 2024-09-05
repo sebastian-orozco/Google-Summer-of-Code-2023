@@ -14,9 +14,6 @@ Developed by Sebastian Orozco & Sarah Agarrat, mentored by Maddie Webster
 Goal: Implement a mobile website where Bostonians can listen to user-submitted stories while riding public transportation
 
 
-Progress: 90% complete, see “Next Steps” for more details. 
-
-
 ## Background
 
 
@@ -96,8 +93,7 @@ The design of T-tours is simple, user-friendly, and inviting. T-tours evokes a �
 ### Next Steps
 
 
-As previously mentioned, T-tours is nearly complete. The tasks that remain to be completed are as follows:
-Fully link the frontend to the backend - most of this can be accomplished by using copy and pasting some links, thanks to Sarah’s APIs, but will have to be tinkered with a bit. Various templates and `app.py` must reflect the functionality of Sarah’s backend such that the functions she wrote will operate as demoed in the frontend; for example, `routemap.html` must automatically switch between sites of interest depending on the user’s location, and while location data is able to be received on the frontend and manipulated on the backend, the final connection between these two processes is yet to be implemented. 
+The tasks that remain to be completed are as follows:
+Fully link the frontend to the backend - most of this can be accomplished by copy and pasting some links, thanks to Sarah’s APIs, but will have to be tinkered with a bit. Various templates and `app.py` must reflect the functionality of Sarah’s backend such that the functions she wrote will operate as demoed in the frontend; for example, `routemap.html` must automatically switch between sites of interest depending on the user’s location, and while location data is able to be received on the frontend and manipulated on the backend, the final connection between these two processes is yet to be implemented. 
 Add functionality to `share.html` - this page currently exists to model what it might look like, but is not able to accept and save user-submitted data in its current state
 Refine traversing between site pages and sending/receiving data - `app.py` currently accepts ‘GET’ and ‘POST’ methods for every page, but this is somewhat inaccurate, as some pages should only be accessible via ‘POST’ requests, meaning that the user submitted data in some way. Moreover, the ways that some data is sent/ received should be fixed, such that data can be correctly passed to and from the server and be processed. For instance, a current bug is that when the user manually searches for a route, their query is returned to the `app.py` but is unable to be processed, subsequently causing `mresults.html` to not be able to display the user’s query as a placeholder in the search bar (a value of “route 45,” the demoed tour, is present instead). 
-With the completion of these tasks, T-tours should be ready to go! 
